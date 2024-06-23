@@ -22,7 +22,12 @@ to-do-list/
 
 
 
-letra = #FFB300
+letra-yl= #FFB300
+letra-wt= #DCDCDC
+
+table-interna = #2B2B2B
+table-extern = #212121
+
 
 quadrado em foco #FFE099
 

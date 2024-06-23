@@ -1,19 +1,21 @@
 <!-- Base template -->
+{% load static %}
 <!doctype html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Simple.css-->
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <title>Django To-do Lists</title>
-</head>
 
+    {% comment %} css-tag-extends {% endcomment %}
+    {% include "todoAPP/pages/head.html" %}
+</head>
 <body>
     <div>
-        <h1 onclick="location.href='{% url "index" %}'">
+        <h1 class="css-h1-title" onclick="location.href='{% url "index" %}'">
             Django To-do Lists
         </h1>
     </div>
