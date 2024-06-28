@@ -2,26 +2,32 @@
 {% extends "todoAPP/pages/base.html" %}
 {% block content %}
 <!--index.html-->
-{% if object_list %}
-<h3>All my lists</h3>
-{% endif %}
-<ul>
-    {% for todolist in object_list %}
-    <li>
-        <div
-            role="button"
-            onclick="location.href='{% url "list" todolist.id %}'">
-            {{ todolist.title }}
+<div class="main-content container">
+    {% if object_list %}
+    <h3 class="sub-title">All my lists:</h3>
+    {% endif %}
+    <div class="table-container">
+        <ul class="">
+            {% for todolist in object_list %}
+            <li>
+                <div
+                    role="button"
+                    onclick="location.href='{% url "list" todolist.id %}'">
+                    {{ todolist.title }}
+                </div>
+            </li>
+            {% empty %}
+            <h4>You have no lists!</h4>
+            {% endfor %}
+        </ul>
         </div>
-    </li>
-    {% empty %}
-    <h4>You have no lists!</h4>
-    {% endfor %}
-</ul>
-<p>
-    <input
-        value="Add a new list"
-        type="button"
-        onclick="location.href='{% url "list-add" %}'"/>
-</p>
+        <div class="table-container">
+            <p >
+                <input class="table-container-button sub-title-list"
+                    value="Add a new list"
+                    type="button"
+                    onclick="location.href='{% url "list-add" %}'"/>
+            </p>
+        </div>
+</div>
 {% endblock %}

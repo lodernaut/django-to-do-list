@@ -5,9 +5,9 @@
 {% block content %}
 
 <h3>{{ title }}</h3>
-<div>
-    <div>
-        <form method="post">
+<div class="main-content container">
+    <div class="form-container">
+        <form method="post" >
             {% csrf_token %}
             {{ form.as_p }}
             <input

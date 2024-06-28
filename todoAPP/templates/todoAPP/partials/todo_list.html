@@ -1,40 +1,50 @@
 {% extends "todoAPP/pages/base.html" %}
 
 {% block content %}
-<div>
+<!--todo_list.html-->
+<div class="main-content container">
     <div>
-        <div>
-            <h3>Edit list:</h3>
-            <h5>{{ todo_list.title | upper }}</h5>
+        <div >
+            <h3 class="edit-list-title">Edit list:</h3>
+            <h5 class="edit-list-sub-title"> {{ todo_list.title | upper }}
+
+            </h5>
         </div>
-        <ul>
-            {% for todo in object_list %}
-            <li>
-                <div>
-                    <div
-                        role="button"
-                        onclick="location.href='{% url "item-update" todo_list.id todo.id %}'">
-                        {{ todo.title }}
-                        {% comment %} (Due {{ todo.due_date | date:"l, F j" }}) {% endcomment %}
-                        ( {{ todo.due_date | date:"d/m/Y - H:i" }} )
+        <div class="table-container-list">
+
+            <ul>
+
+                {% for todo in object_list %}
+
+                <li>
+                    <div class="table-container-li">
+                        <div
+                            role="button"
+                            onclick="location.href='{% url "item-update" todo_list.id todo.id %}'">
+                            {{ todo.title }}
+                            {% comment %} (Due {{ todo.due_date | date:"l, F j" }}) {% endcomment %}
+                            ( {{ todo.due_date | date:"d/m/Y - H:i" }} )
+                        </div>
                     </div>
-                </div>
-            </li>
-            {% empty %}
-            <p>There are no to-do items in this list.</p>
-            {% endfor %}
-        </ul>
-        <p>
-            <input
-                value="Add a new item"
-                type="button"
-                onclick="location.href='{% url "item-add" todo_list.id %}'" />
-                <input
-                value="Delete this list"
-                type="button"
-                onclick="location.href=
-                '{% url "list-delete" todo_list.id %}'" />
+                </li>
+                {% empty %}
+                <p>There are no to-do items in this list.</p>
+                {% endfor %}
+            </ul>
+        <div>
+        <div class="table-container-2">
+            <p>
+                <input class="table-container-button table-container-button-2"
+                    value="Add a new item"
+                    type="button"
+                    onclick="location.href='{% url "item-add" todo_list.id %}'" />
+                    <input class="table-container-button table-container-button-2"
+                    value="Delete this list"
+                    type="button"
+                    onclick="location.href=
+                    '{% url "list-delete" todo_list.id %}'" />
             </p>
+        </div>
     </div>
 </div>
 {% endblock %}

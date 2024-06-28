@@ -2,9 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
+
 # Create your models here.
-
-
 def one_week_hence():
     return timezone.now() + timezone.timedelta(days=7)
 
